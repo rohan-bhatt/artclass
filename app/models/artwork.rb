@@ -5,6 +5,8 @@ class Artwork < ApplicationRecord
 
   # Validations
 
+  validates :image, :presence => true
+
   # Scopes
 
   def to_s
