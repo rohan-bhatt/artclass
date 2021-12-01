@@ -5,6 +5,8 @@ class Artist < ApplicationRecord
 
   # Validations
 
+  validates :username, :presence => true
+
   # Scopes
 
   def to_s
