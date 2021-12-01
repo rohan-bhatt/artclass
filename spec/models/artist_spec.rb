@@ -4,6 +4,8 @@ RSpec.describe Artist, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:created_works) }
+
     it { should have_many(:prompts) }
 
     it { should have_many(:artworks) }
