@@ -1,6 +1,10 @@
 class Artwork < ApplicationRecord
   # Direct associations
 
+  belongs_to :prompt,
+             :required => false,
+             :counter_cache => true
+
   belongs_to :artist,
              :counter_cache => true
 

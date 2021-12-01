@@ -4,6 +4,8 @@ RSpec.describe Artwork, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:prompt) }
+
     it { should belong_to(:artist) }
 
     end

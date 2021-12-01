@@ -4,6 +4,8 @@ RSpec.describe Prompt, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:artworks) }
+
     it { should belong_to(:prompter) }
 
     end

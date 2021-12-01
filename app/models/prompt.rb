@@ -1,6 +1,9 @@
 class Prompt < ApplicationRecord
   # Direct associations
 
+  has_many   :artworks,
+             :dependent => :nullify
+
   belongs_to :prompter,
              :class_name => "Artist",
              :foreign_key => "artist_id"
