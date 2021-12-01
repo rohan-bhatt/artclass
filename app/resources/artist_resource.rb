@@ -10,6 +10,9 @@ class ArtistResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :favorited_works,
+             foreign_key: :favoriter_id
+
   has_many   :created_works,
              resource: FavoritedWorkResource,
              foreign_key: :creator_id
