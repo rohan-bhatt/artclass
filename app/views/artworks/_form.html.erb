@@ -198,7 +198,7 @@
 
     <%= f.label :mood_id %>
     <!-- Input for mood_id start -->
-    <%= f.number_field :mood_id, class: mood_class, placeholder: "Enter mood" %>
+    <%= f.collection_select :mood_id, Mood.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for mood_id end -->
     <% if mood_was_invalid %>
       <% artwork.errors.full_messages_for(:mood).each do |message| %>
