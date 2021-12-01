@@ -1,5 +1,7 @@
 ActiveAdmin.register FavoritedWork do
 
+ permit_params :artwork_id, :creator_id, :favoriter_id
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
