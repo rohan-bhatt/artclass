@@ -8,6 +8,9 @@ class ArtistsController < ApplicationController
 
   # GET /artists/1
   def show
+    @favorited_work = FavoritedWork.new
+    @prompt = Prompt.new
+    @artwork = Artwork.new
   end
 
   # GET /artists/new

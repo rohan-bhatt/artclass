@@ -8,6 +8,7 @@ class MoodsController < ApplicationController
 
   # GET /moods/1
   def show
+    @artwork = Artwork.new
   end
 
   # GET /moods/new

@@ -8,6 +8,7 @@ class ArtworksController < ApplicationController
 
   # GET /artworks/1
   def show
+    @favorited_work = FavoritedWork.new
   end
 
   # GET /artworks/new
@@ -24,7 +25,12 @@ class ArtworksController < ApplicationController
     @artwork = Artwork.new(artwork_params)
 
     if @artwork.save
-      redirect_to @artwork, notice: 'Artwork was successfully created.'
+      message = 'Artwork was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @artwork, notice: message
+      end
     else
       render :new
     end

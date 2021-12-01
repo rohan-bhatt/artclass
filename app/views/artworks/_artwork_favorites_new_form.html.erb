@@ -1,0 +1,32 @@
+<!-- Form favorited_work start -->
+<%= form_with(model: @favorited_work, local: true) do |f| %>
+<!-- Form favorited_work end -->
+
+  <!-- Label and input for artwork_id start -->
+  <!-- Input for artwork_id start -->
+  <%= f.hidden_field :artwork_id, value: @artwork.id %>
+  <!-- Input for artwork_id end -->
+  <!-- Label and input for artwork_id end -->
+
+  <!-- Label and input for creator_id start -->
+  <div class="form-group">
+    <%= f.label :creator_id %>
+
+    <!-- Input for creator_id start -->
+    <%= f.text_field :creator_id, class: "form-control" %>
+    <!-- Input for creator_id end -->
+  </div>
+  <!-- Label and input for creator_id end -->
+
+  <!-- Label and input for favoriter_id start -->
+  <div class="form-group">
+    <%= f.label :favoriter_id %>
+
+    <!-- Input for favoriter_id start -->
+    <%= f.text_field :favoriter_id, class: "form-control" %>
+    <!-- Input for favoriter_id end -->
+  </div>
+  <!-- Label and input for favoriter_id end -->
+
+  <%= f.submit "Create favorited work", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

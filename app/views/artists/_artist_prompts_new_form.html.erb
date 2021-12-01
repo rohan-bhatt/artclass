@@ -1,0 +1,31 @@
+<!-- Form prompt start -->
+<%= form_with(model: @prompt, local: true) do |f| %>
+<!-- Form prompt end -->
+
+  <!-- Label and input for title start -->
+  <div class="form-group">
+    <%= f.label :title %>
+
+    <!-- Input for title start -->
+    <%= f.text_field :title, class: "form-control" %>
+    <!-- Input for title end -->
+  </div>
+  <!-- Label and input for title end -->
+
+  <!-- Label and input for body start -->
+  <div class="form-group">
+    <%= f.label :body %>
+    <!-- Input for body start -->
+    <%= f.text_area :body, rows: "3", class: "form-control" %>
+    <!-- Input for body end -->
+  </div>
+  <!-- Label and input for body end -->
+
+  <!-- Label and input for artist_id start -->
+  <!-- Input for artist_id start -->
+  <%= f.hidden_field :artist_id, value: @artist.id %>
+  <!-- Input for artist_id end -->
+  <!-- Label and input for artist_id end -->
+
+  <%= f.submit "Create prompt", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

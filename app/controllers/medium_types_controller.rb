@@ -8,6 +8,7 @@ class MediumTypesController < ApplicationController
 
   # GET /medium_types/1
   def show
+    @artwork = Artwork.new
   end
 
   # GET /medium_types/new

@@ -8,6 +8,7 @@ class PromptsController < ApplicationController
 
   # GET /prompts/1
   def show
+    @artwork = Artwork.new
   end
 
   # GET /prompts/new
@@ -24,7 +25,12 @@ class PromptsController < ApplicationController
     @prompt = Prompt.new(prompt_params)
 
     if @prompt.save
-      redirect_to @prompt, notice: 'Prompt was successfully created.'
+      message = 'Prompt was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @prompt, notice: message
+      end
     else
       render :new
     end

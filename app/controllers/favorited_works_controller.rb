@@ -24,7 +24,12 @@ class FavoritedWorksController < ApplicationController
     @favorited_work = FavoritedWork.new(favorited_work_params)
 
     if @favorited_work.save
-      redirect_to @favorited_work, notice: 'Favorited work was successfully created.'
+      message = 'FavoritedWork was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @favorited_work, notice: message
+      end
     else
       render :new
     end
