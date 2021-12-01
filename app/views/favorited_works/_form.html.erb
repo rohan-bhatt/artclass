@@ -16,7 +16,7 @@
 
     <%= f.label :artwork_id %>
     <!-- Input for artwork_id start -->
-    <%= f.number_field :artwork_id, class: artwork_class, placeholder: "Enter artwork" %>
+    <%= f.collection_select :artwork_id, Artwork.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for artwork_id end -->
     <% if artwork_was_invalid %>
       <% favorited_work.errors.full_messages_for(:artwork).each do |message| %>

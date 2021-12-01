@@ -7,7 +7,7 @@
     <%= f.label :artwork_id %>
 
     <!-- Input for artwork_id start -->
-    <%= f.text_field :artwork_id, class: "form-control" %>
+    <%= f.collection_select :artwork_id, Artwork.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for artwork_id end -->
   </div>
   <!-- Label and input for artwork_id end -->
