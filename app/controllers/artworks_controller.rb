@@ -1,4 +1,6 @@
 class ArtworksController < ApplicationController
+  before_action :current_artist_must_be_artwork_artist, only: [:edit, :update, :destroy] 
+
   before_action :set_artwork, only: [:show, :edit, :update, :destroy]
 
   # GET /artworks
@@ -58,6 +60,14 @@ class ArtworksController < ApplicationController
 
 
   private
+
+  def current_artist_must_be_artwork_artist
+    set_artwork
+    unless current_artist == @artwork.artist
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_artwork
       @artwork = Artwork.find(params[:id])

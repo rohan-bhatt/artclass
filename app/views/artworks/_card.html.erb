@@ -61,16 +61,20 @@
 
       <!-- Edit link artwork start -->
       <div class="col">
-        <%= link_to edit_artwork_url(artwork), class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-edit"></i>
+        <% if current_artist == @artwork.artist %>
+          <%= link_to edit_artwork_url(artwork), class: "btn btn-block btn-sm btn-outline-secondary" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Edit link artwork end -->
 
       <!-- Delete link artwork start -->
       <div class="col">
-        <%= link_to artwork, method: :delete, data: { confirm: "Do you really want to delete this artwork?" }, class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_artist == @artwork.artist %>
+          <%= link_to artwork, method: :delete, data: { confirm: "Do you really want to delete this artwork?" }, class: "btn btn-block btn-outline-secondary" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Delete link artwork end -->
