@@ -1,0 +1,31 @@
+<% was_validated = mood.errors.any? %>
+
+<%= form_with(model: mood, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for mood start -->
+  <div class="form-group">
+    <% mood_class = "form-control" %>
+    <% mood_was_invalid = mood.errors.include?(:mood) %>
+
+    <% if was_validated %>
+      <% if mood_was_invalid %>
+        <% mood_class << " is-invalid" %>
+      <% else %>
+        <% mood_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :mood %>
+    <!-- Input for mood start -->
+    <%= f.text_field :mood, class: mood_class, placeholder: "Enter mood" %>
+    <!-- Input for mood end -->
+    <% if mood_was_invalid %>
+      <% mood.errors.full_messages_for(:mood).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for mood end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
