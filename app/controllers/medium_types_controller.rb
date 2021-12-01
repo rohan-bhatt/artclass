@@ -3,7 +3,7 @@ class MediumTypesController < ApplicationController
 
   # GET /medium_types
   def index
-    @medium_types = MediumType.all
+    @medium_types = MediumType.page(params[:page]).per(10)
   end
 
   # GET /medium_types/1

@@ -34,6 +34,10 @@
       <div class="list-group list-group-flush">
         <%= render collection: @favorited_works, partial: "list_item", as: :favorited_work %>
       </div>
+      <div class="card-footer d-flex justify-content-center">
+        <%= paginate @favorited_works, theme: 'twitter-bootstrap-4' %>
+      </div>
+
     </div>
   </div>
 </div>

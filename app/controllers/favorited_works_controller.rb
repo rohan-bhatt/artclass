@@ -3,7 +3,7 @@ class FavoritedWorksController < ApplicationController
 
   # GET /favorited_works
   def index
-    @favorited_works = FavoritedWork.all
+    @favorited_works = FavoritedWork.page(params[:page]).per(10)
   end
 
   # GET /favorited_works/1

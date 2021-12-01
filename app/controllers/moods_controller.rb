@@ -3,7 +3,7 @@ class MoodsController < ApplicationController
 
   # GET /moods
   def index
-    @moods = Mood.all
+    @moods = Mood.page(params[:page]).per(10)
   end
 
   # GET /moods/1

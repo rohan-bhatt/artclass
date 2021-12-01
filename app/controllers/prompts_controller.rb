@@ -5,7 +5,7 @@ class PromptsController < ApplicationController
 
   # GET /prompts
   def index
-    @prompts = Prompt.all
+    @prompts = Prompt.page(params[:page]).per(10)
   end
 
   # GET /prompts/1
