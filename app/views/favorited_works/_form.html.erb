@@ -1,7 +1,6 @@
 <% was_validated = favorited_work.errors.any? %>
 
 <%= form_with(model: favorited_work, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for artwork_id start -->
   <div class="form-group">
     <% artwork_class = "form-control" %>
     <% artwork_was_invalid = favorited_work.errors.include?(:artwork) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :artwork_id %>
-    <!-- Input for artwork_id start -->
     <%= f.collection_select :artwork_id, Artwork.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for artwork_id end -->
     <% if artwork_was_invalid %>
       <% favorited_work.errors.full_messages_for(:artwork).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for artwork_id end -->
-  <!-- Label and input for creator_id start -->
   <div class="form-group">
     <% creator_class = "form-control" %>
     <% creator_was_invalid = favorited_work.errors.include?(:creator) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :creator_id %>
-    <!-- Input for creator_id start -->
     <%= f.collection_select :creator_id, Artist.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for creator_id end -->
     <% if creator_was_invalid %>
       <% favorited_work.errors.full_messages_for(:creator).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for creator_id end -->
-  <!-- Label and input for favoriter_id start -->
   <div class="form-group">
     <% favoriter_class = "form-control" %>
     <% favoriter_was_invalid = favorited_work.errors.include?(:favoriter) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :favoriter_id %>
-    <!-- Input for favoriter_id start -->
     <%= f.collection_select :favoriter_id, Artist.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for favoriter_id end -->
     <% if favoriter_was_invalid %>
       <% favorited_work.errors.full_messages_for(:favoriter).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,6 +67,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for favoriter_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

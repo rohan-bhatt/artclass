@@ -6,23 +6,17 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Title</dt>
-      <!-- Display title start -->
       <dd><%= prompt.title %></dd>
-      <!-- Display title end -->
 
       <dt>Body</dt>
-      <!-- Display body start -->
       <dd><%= prompt.body %></dd>
-      <!-- Display body end -->
 
       <dt>Artist</dt>
-      <!-- Display artist_id start -->
       <dd>
         <% if @prompt.prompter.present? %>
           <%= link_to prompt.prompter, prompt.prompter %>
         <% end %>
       </dd>
-      <!-- Display artist_id end -->
 
     </dl>
 
@@ -31,7 +25,6 @@
         <%= link_to_show_or_back prompt, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link prompt start -->
       <div class="col">
         <% if current_artist == @prompt.prompter %>
           <%= link_to edit_prompt_url(prompt), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -39,9 +32,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link prompt end -->
 
-      <!-- Delete link prompt start -->
       <div class="col">
         <% if current_artist == @prompt.prompter %>
           <%= link_to prompt, method: :delete, data: { confirm: "Do you really want to delete this prompt?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -49,7 +40,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link prompt end -->
     </div>
   </div>
 

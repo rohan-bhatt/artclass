@@ -6,31 +6,25 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Artwork</dt>
-      <!-- Display artwork_id start -->
       <dd>
         <% if @favorited_work.artwork.present? %>
           <%= link_to favorited_work.artwork, favorited_work.artwork %>
         <% end %>
       </dd>
-      <!-- Display artwork_id end -->
 
       <dt>Creator</dt>
-      <!-- Display creator_id start -->
       <dd>
         <% if @favorited_work.creator.present? %>
           <%= link_to favorited_work.creator, favorited_work.creator %>
         <% end %>
       </dd>
-      <!-- Display creator_id end -->
 
       <dt>Favoriter</dt>
-      <!-- Display favoriter_id start -->
       <dd>
         <% if @favorited_work.favoriter.present? %>
           <%= link_to favorited_work.favoriter, favorited_work.favoriter %>
         <% end %>
       </dd>
-      <!-- Display favoriter_id end -->
 
     </dl>
 
@@ -39,21 +33,17 @@
         <%= link_to_show_or_back favorited_work, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link favorited_work start -->
       <div class="col">
         <%= link_to edit_favorited_work_url(favorited_work), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link favorited_work end -->
 
-      <!-- Delete link favorited_work start -->
       <div class="col">
         <%= link_to favorited_work, method: :delete, data: { confirm: "Do you really want to delete this favorited_work?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link favorited_work end -->
     </div>
   </div>
 

@@ -6,67 +6,49 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Image</dt>
-      <!-- Display image start -->
       <dd>
         <%= cl_image_tag @artwork.image, class: "img-fluid" %>
       </dd>
-      <!-- Display image end -->
 
       <dt>Artist</dt>
-      <!-- Display artist_id start -->
       <dd>
         <% if @artwork.artist.present? %>
           <%= link_to artwork.artist, artwork.artist %>
         <% end %>
       </dd>
-      <!-- Display artist_id end -->
 
       <dt>Title</dt>
-      <!-- Display title start -->
       <dd><%= artwork.title %></dd>
-      <!-- Display title end -->
 
       <dt>Description</dt>
-      <!-- Display description start -->
       <dd><%= artwork.description %></dd>
-      <!-- Display description end -->
 
       <dt>Dimensions height</dt>
-      <!-- Display dimensions_height start -->
       <dd><%= artwork.dimensions_height %></dd>
-      <!-- Display dimensions_height end -->
 
       <dt>Dimensions width</dt>
-      <!-- Display dimensions_width start -->
       <dd><%= artwork.dimensions_width %></dd>
-      <!-- Display dimensions_width end -->
 
       <dt>Medium</dt>
-      <!-- Display medium_id start -->
       <dd>
         <% if @artwork.medium.present? %>
           <%= link_to artwork.medium, artwork.medium %>
         <% end %>
       </dd>
-      <!-- Display medium_id end -->
 
       <dt>Mood</dt>
-      <!-- Display mood_id start -->
       <dd>
         <% if @artwork.mood.present? %>
           <%= link_to artwork.mood, artwork.mood %>
         <% end %>
       </dd>
-      <!-- Display mood_id end -->
 
       <dt>Prompt</dt>
-      <!-- Display prompt_id start -->
       <dd>
         <% if @artwork.prompt.present? %>
           <%= link_to artwork.prompt, artwork.prompt %>
         <% end %>
       </dd>
-      <!-- Display prompt_id end -->
 
     </dl>
 
@@ -75,7 +57,6 @@
         <%= link_to_show_or_back artwork, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link artwork start -->
       <div class="col">
         <% if current_artist == @artwork.artist %>
           <%= link_to edit_artwork_url(artwork), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -83,9 +64,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link artwork end -->
 
-      <!-- Delete link artwork start -->
       <div class="col">
         <% if current_artist == @artwork.artist %>
           <%= link_to artwork, method: :delete, data: { confirm: "Do you really want to delete this artwork?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -93,7 +72,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link artwork end -->
     </div>
   </div>
 

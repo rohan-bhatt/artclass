@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @medium_type.artworks.each do |artwork| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to artwork, artwork %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <% if current_artist == artwork.artist %>
           <%= link_to artwork, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="medium_type_artworks_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "medium_types/medium_type_artworks_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

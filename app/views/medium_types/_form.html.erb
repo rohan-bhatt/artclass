@@ -1,7 +1,6 @@
 <% was_validated = medium_type.errors.any? %>
 
 <%= form_with(model: medium_type, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for medium start -->
   <div class="form-group">
     <% medium_class = "form-control" %>
     <% medium_was_invalid = medium_type.errors.include?(:medium) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :medium %>
-    <!-- Input for medium start -->
     <%= f.text_field :medium, class: medium_class, placeholder: "Enter medium" %>
-    <!-- Input for medium end -->
     <% if medium_was_invalid %>
       <% medium_type.errors.full_messages_for(:medium).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,6 +23,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for medium end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

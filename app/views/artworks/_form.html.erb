@@ -1,7 +1,6 @@
 <% was_validated = artwork.errors.any? %>
 
 <%= form_with(model: artwork, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for image start -->
   <div class="form-group">
     <% image_class = "form-control" %>
     <% image_was_invalid = artwork.errors.include?(:image) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :image %>
-    <!-- Input for image start -->
     <%= f.file_field :image, class: "form-control" %>
-    <!-- Input for image end -->
     <% if image_was_invalid %>
       <% artwork.errors.full_messages_for(:image).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,13 +23,7 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for image end -->
-  <!-- Label and input for artist_id start -->
-  <!-- Input for "artist_id" start -->
   <%= f.hidden_field :artist_id, value: current_artist.id %>
-  <!-- Input for "artist_id" end -->
-  <!-- Label and input for artist_id end -->
-  <!-- Label and input for title start -->
   <div class="form-group">
     <% title_class = "form-control" %>
     <% title_was_invalid = artwork.errors.include?(:title) %>
@@ -46,9 +37,7 @@
     <% end %>
 
     <%= f.label :title %>
-    <!-- Input for title start -->
     <%= f.text_field :title, class: title_class, placeholder: "Enter title" %>
-    <!-- Input for title end -->
     <% if title_was_invalid %>
       <% artwork.errors.full_messages_for(:title).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -57,8 +46,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for title end -->
-  <!-- Label and input for description start -->
   <div class="form-group">
     <% description_class = "form-control" %>
     <% description_was_invalid = artwork.errors.include?(:description) %>
@@ -72,9 +59,7 @@
     <% end %>
 
     <%= f.label :description %>
-    <!-- Input for description start -->
     <%= f.text_area :description, class: description_class, placeholder: "Enter description" %>
-    <!-- Input for description end -->
     <% if description_was_invalid %>
       <% artwork.errors.full_messages_for(:description).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -83,8 +68,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for description end -->
-  <!-- Label and input for dimensions_height start -->
   <div class="form-group">
     <% dimensions_height_class = "form-control" %>
     <% dimensions_height_was_invalid = artwork.errors.include?(:dimensions_height) %>
@@ -98,9 +81,7 @@
     <% end %>
 
     <%= f.label :dimensions_height %>
-    <!-- Input for dimensions_height start -->
     <%= f.text_field :dimensions_height, class: dimensions_height_class, placeholder: "Enter dimensions height" %>
-    <!-- Input for dimensions_height end -->
     <% if dimensions_height_was_invalid %>
       <% artwork.errors.full_messages_for(:dimensions_height).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -109,8 +90,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for dimensions_height end -->
-  <!-- Label and input for dimensions_width start -->
   <div class="form-group">
     <% dimensions_width_class = "form-control" %>
     <% dimensions_width_was_invalid = artwork.errors.include?(:dimensions_width) %>
@@ -124,9 +103,7 @@
     <% end %>
 
     <%= f.label :dimensions_width %>
-    <!-- Input for dimensions_width start -->
     <%= f.text_field :dimensions_width, class: dimensions_width_class, placeholder: "Enter dimensions width" %>
-    <!-- Input for dimensions_width end -->
     <% if dimensions_width_was_invalid %>
       <% artwork.errors.full_messages_for(:dimensions_width).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -135,8 +112,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for dimensions_width end -->
-  <!-- Label and input for medium_id start -->
   <div class="form-group">
     <% medium_class = "form-control" %>
     <% medium_was_invalid = artwork.errors.include?(:medium) %>
@@ -150,9 +125,7 @@
     <% end %>
 
     <%= f.label :medium_id %>
-    <!-- Input for medium_id start -->
     <%= f.collection_select :medium_id, MediumType.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for medium_id end -->
     <% if medium_was_invalid %>
       <% artwork.errors.full_messages_for(:medium).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -161,8 +134,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for medium_id end -->
-  <!-- Label and input for mood_id start -->
   <div class="form-group">
     <% mood_class = "form-control" %>
     <% mood_was_invalid = artwork.errors.include?(:mood) %>
@@ -176,9 +147,7 @@
     <% end %>
 
     <%= f.label :mood_id %>
-    <!-- Input for mood_id start -->
     <%= f.collection_select :mood_id, Mood.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for mood_id end -->
     <% if mood_was_invalid %>
       <% artwork.errors.full_messages_for(:mood).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -187,8 +156,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for mood_id end -->
-  <!-- Label and input for prompt_id start -->
   <div class="form-group">
     <% prompt_class = "form-control" %>
     <% prompt_was_invalid = artwork.errors.include?(:prompt) %>
@@ -202,9 +169,7 @@
     <% end %>
 
     <%= f.label :prompt_id %>
-    <!-- Input for prompt_id start -->
     <%= f.collection_select :prompt_id, Prompt.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for prompt_id end -->
     <% if prompt_was_invalid %>
       <% artwork.errors.full_messages_for(:prompt).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -213,6 +178,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for prompt_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
