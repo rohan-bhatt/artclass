@@ -14,6 +14,9 @@ class ArtworkResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :favorites,
+             resource: FavoritedWorkResource
+
   belongs_to :mood
 
   belongs_to :prompt
