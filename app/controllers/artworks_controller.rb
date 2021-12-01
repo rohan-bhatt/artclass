@@ -5,7 +5,8 @@ class ArtworksController < ApplicationController
 
   # GET /artworks
   def index
-    @artworks = Artwork.page(params[:page]).per(10)
+    @q = Artwork.ransack(params[:q])
+    @artworks = @q.result(:distinct => true).includes(:artist, :prompt, :mood, :favorites, :medium, :fans).page(params[:page]).per(10)
   end
 
   # GET /artworks/1

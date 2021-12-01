@@ -3,7 +3,8 @@ class FavoritedWorksController < ApplicationController
 
   # GET /favorited_works
   def index
-    @favorited_works = FavoritedWork.page(params[:page]).per(10)
+    @q = FavoritedWork.ransack(params[:q])
+    @favorited_works = @q.result(:distinct => true).includes(:creator, :favoriter, :artwork).page(params[:page]).per(10)
   end
 
   # GET /favorited_works/1

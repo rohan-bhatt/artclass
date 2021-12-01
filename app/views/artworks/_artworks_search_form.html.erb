@@ -1,0 +1,113 @@
+<%= search_form_for @q, :class => collapse_search_form, :id => "artworks_filters" do |f| %>
+  <p class="lead">Narrow results:</p>
+
+  <div class="form-group">
+    <%= f.label :dimensions_width, "Dimensions width" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :dimensions_width_gteq, :class => "form-control", :placeholder => "Dimensions width greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :dimensions_width_lteq, :class => "form-control", :placeholder => "Dimensions width less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :dimensions_height, "Dimensions height" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :dimensions_height_gteq, :class => "form-control", :placeholder => "Dimensions height greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :dimensions_height_lteq, :class => "form-control", :placeholder => "Dimensions height less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description_cont, "Description contains" %>
+    <%= f.text_field :description_cont, :class => "form-control", :placeholder => "Description contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :title_cont, "Title contains" %>
+    <%= f.text_field :title_cont, :class => "form-control", :placeholder => "Title contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :created_at, "Created at" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='created_atgteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Created at greater than or equal to", :data => {:target => '#created_atgteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atgteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='created_atlteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Created at less than or equal to", :data => {:target => '#created_atlteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atlteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#created_atgteqPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atlteqPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atgteqPicker').on("dp.change", function (e) {
+              $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#created_atlteqPicker').on("dp.change", function (e) {
+              $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+
+  <div class="form-group">
+    <%= f.label :artist_email_cont, "Artist email contains" %>
+    <%= f.text_field :artist_email_cont, :class => "form-control", :placeholder => "Artist email contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :prompt_title_cont, "Prompt title contains" %>
+    <%= f.text_field :prompt_title_cont, :class => "form-control", :placeholder => "Prompt title contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :mood_mood_cont, "Mood mood contains" %>
+    <%= f.text_field :mood_mood_cont, :class => "form-control", :placeholder => "Mood mood contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :medium_medium_cont, "Medium medium contains" %>
+    <%= f.text_field :medium_medium_cont, :class => "form-control", :placeholder => "Medium medium contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :fans_email_cont, "Fans email contains" %>
+    <%= f.text_field :fans_email_cont, :class => "form-control", :placeholder => "Fans email contains" %>
+  </div>
+
+
+  <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+  <a href="/artworks" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
+
+<% end %>
+
+<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#artworks_filters">
+  Show filters
+</a>

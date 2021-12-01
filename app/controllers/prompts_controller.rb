@@ -5,7 +5,8 @@ class PromptsController < ApplicationController
 
   # GET /prompts
   def index
-    @prompts = Prompt.page(params[:page]).per(10)
+    @q = Prompt.ransack(params[:q])
+    @prompts = @q.result(:distinct => true).includes(:prompter, :artworks).page(params[:page]).per(10)
   end
 
   # GET /prompts/1
