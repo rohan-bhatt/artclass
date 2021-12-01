@@ -1,6 +1,9 @@
 class Artwork < ApplicationRecord
   # Direct associations
 
+  belongs_to :artist,
+             :counter_cache => true
+
   # Indirect associations
 
   # Validations
