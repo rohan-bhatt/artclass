@@ -1,6 +1,9 @@
 class Artwork < ApplicationRecord
   # Direct associations
 
+  belongs_to :mood,
+             :required => false
+
   belongs_to :prompt,
              :required => false,
              :counter_cache => true
