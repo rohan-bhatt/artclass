@@ -5,6 +5,8 @@ class Prompt < ApplicationRecord
 
   # Validations
 
+  validates :body, :presence => true
+
   validates :title, :presence => true
 
   # Scopes
