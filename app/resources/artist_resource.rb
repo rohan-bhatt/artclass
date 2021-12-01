@@ -10,6 +10,8 @@ class ArtistResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :prompts
+
   has_many   :artworks
 
   # Indirect associations

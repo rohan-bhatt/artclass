@@ -8,6 +8,10 @@ class PromptResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :prompter,
+             resource: ArtistResource,
+             foreign_key: :artist_id
+
   # Indirect associations
 
 end
