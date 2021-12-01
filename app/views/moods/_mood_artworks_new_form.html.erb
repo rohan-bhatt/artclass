@@ -13,13 +13,9 @@
   <!-- Label and input for image end -->
 
   <!-- Label and input for artist_id start -->
-  <div class="form-group">
-    <%= f.label :artist_id %>
-
-    <!-- Input for artist_id start -->
-    <%= f.collection_select :artist_id, Artist.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for artist_id end -->
-  </div>
+  <!-- Input for "artist_id" start -->
+  <%= f.hidden_field :artist_id, value: current_artist.id %>
+  <!-- Input for "artist_id" end -->
   <!-- Label and input for artist_id end -->
 
   <!-- Label and input for title start -->
