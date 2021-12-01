@@ -82,7 +82,7 @@
     <%= f.label :prompt_id %>
 
     <!-- Input for prompt_id start -->
-    <%= f.text_field :prompt_id, class: "form-control" %>
+    <%= f.collection_select :prompt_id, Prompt.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for prompt_id end -->
   </div>
   <!-- Label and input for prompt_id end -->

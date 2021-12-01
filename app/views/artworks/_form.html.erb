@@ -224,7 +224,7 @@
 
     <%= f.label :prompt_id %>
     <!-- Input for prompt_id start -->
-    <%= f.number_field :prompt_id, class: prompt_class, placeholder: "Enter prompt" %>
+    <%= f.collection_select :prompt_id, Prompt.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for prompt_id end -->
     <% if prompt_was_invalid %>
       <% artwork.errors.full_messages_for(:prompt).each do |message| %>
