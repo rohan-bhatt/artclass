@@ -1,0 +1,51 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Favorited Work #<%= favorited_work.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Artwork</dt>
+      <!-- Display artwork_id start -->
+      <dd><%= favorited_work.artwork_id %></dd>
+      <!-- Display artwork_id end -->
+
+      <dt>Creator</dt>
+      <!-- Display creator_id start -->
+      <dd><%= favorited_work.creator_id %></dd>
+      <!-- Display creator_id end -->
+
+      <dt>Favoriter</dt>
+      <!-- Display favoriter_id start -->
+      <dd><%= favorited_work.favoriter_id %></dd>
+      <!-- Display favoriter_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back favorited_work, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link favorited_work start -->
+      <div class="col">
+        <%= link_to edit_favorited_work_url(favorited_work), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link favorited_work end -->
+
+      <!-- Delete link favorited_work start -->
+      <div class="col">
+        <%= link_to favorited_work, method: :delete, data: { confirm: "Do you really want to delete this favorited_work?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link favorited_work end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(favorited_work.updated_at) %> ago
+  </div>
+</div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :favorited_works
   resources :medium_types
   resources :artworks
   resources :moods

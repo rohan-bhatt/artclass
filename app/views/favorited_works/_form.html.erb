@@ -1,0 +1,83 @@
+<% was_validated = favorited_work.errors.any? %>
+
+<%= form_with(model: favorited_work, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for artwork_id start -->
+  <div class="form-group">
+    <% artwork_class = "form-control" %>
+    <% artwork_was_invalid = favorited_work.errors.include?(:artwork) %>
+
+    <% if was_validated %>
+      <% if artwork_was_invalid %>
+        <% artwork_class << " is-invalid" %>
+      <% else %>
+        <% artwork_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :artwork_id %>
+    <!-- Input for artwork_id start -->
+    <%= f.number_field :artwork_id, class: artwork_class, placeholder: "Enter artwork" %>
+    <!-- Input for artwork_id end -->
+    <% if artwork_was_invalid %>
+      <% favorited_work.errors.full_messages_for(:artwork).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for artwork_id end -->
+  <!-- Label and input for creator_id start -->
+  <div class="form-group">
+    <% creator_class = "form-control" %>
+    <% creator_was_invalid = favorited_work.errors.include?(:creator) %>
+
+    <% if was_validated %>
+      <% if creator_was_invalid %>
+        <% creator_class << " is-invalid" %>
+      <% else %>
+        <% creator_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :creator_id %>
+    <!-- Input for creator_id start -->
+    <%= f.number_field :creator_id, class: creator_class, placeholder: "Enter creator" %>
+    <!-- Input for creator_id end -->
+    <% if creator_was_invalid %>
+      <% favorited_work.errors.full_messages_for(:creator).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for creator_id end -->
+  <!-- Label and input for favoriter_id start -->
+  <div class="form-group">
+    <% favoriter_class = "form-control" %>
+    <% favoriter_was_invalid = favorited_work.errors.include?(:favoriter) %>
+
+    <% if was_validated %>
+      <% if favoriter_was_invalid %>
+        <% favoriter_class << " is-invalid" %>
+      <% else %>
+        <% favoriter_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :favoriter_id %>
+    <!-- Input for favoriter_id start -->
+    <%= f.number_field :favoriter_id, class: favoriter_class, placeholder: "Enter favoriter" %>
+    <!-- Input for favoriter_id end -->
+    <% if favoriter_was_invalid %>
+      <% favorited_work.errors.full_messages_for(:favoriter).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for favoriter_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
