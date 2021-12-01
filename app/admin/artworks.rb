@@ -1,5 +1,7 @@
 ActiveAdmin.register Artwork do
 
+ permit_params :image, :artist_id, :title, :description, :dimensions_height, :dimensions_width, :medium_id, :mood_id, :prompt_id
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
