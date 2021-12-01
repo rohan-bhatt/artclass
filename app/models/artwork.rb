@@ -1,6 +1,10 @@
 class Artwork < ApplicationRecord
   # Direct associations
 
+  belongs_to :medium,
+             :required => false,
+             :class_name => "MediumType"
+
   has_many   :favorites,
              :class_name => "FavoritedWork",
              :dependent => :destroy
