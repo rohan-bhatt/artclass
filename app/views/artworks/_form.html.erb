@@ -172,7 +172,7 @@
 
     <%= f.label :medium_id %>
     <!-- Input for medium_id start -->
-    <%= f.number_field :medium_id, class: medium_class, placeholder: "Enter medium" %>
+    <%= f.collection_select :medium_id, MediumType.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for medium_id end -->
     <% if medium_was_invalid %>
       <% artwork.errors.full_messages_for(:medium).each do |message| %>

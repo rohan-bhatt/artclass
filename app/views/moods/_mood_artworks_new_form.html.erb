@@ -66,7 +66,7 @@
     <%= f.label :medium_id %>
 
     <!-- Input for medium_id start -->
-    <%= f.text_field :medium_id, class: "form-control" %>
+    <%= f.collection_select :medium_id, MediumType.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for medium_id end -->
   </div>
   <!-- Label and input for medium_id end -->
