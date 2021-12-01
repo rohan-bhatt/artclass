@@ -14,6 +14,9 @@ class ArtworkResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :medium,
+             resource: MediumTypeResource
+
   has_many   :favorites,
              resource: FavoritedWorkResource
 

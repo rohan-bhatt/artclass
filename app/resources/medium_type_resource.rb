@@ -6,6 +6,9 @@ class MediumTypeResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :artworks,
+             foreign_key: :medium_id
+
   # Indirect associations
 
 end
