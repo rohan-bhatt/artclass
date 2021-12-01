@@ -29,16 +29,20 @@
 
       <!-- Edit link prompt start -->
       <div class="col">
-        <%= link_to edit_prompt_url(prompt), class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-edit"></i>
+        <% if current_artist == @prompt.prompter %>
+          <%= link_to edit_prompt_url(prompt), class: "btn btn-block btn-sm btn-outline-secondary" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Edit link prompt end -->
 
       <!-- Delete link prompt start -->
       <div class="col">
-        <%= link_to prompt, method: :delete, data: { confirm: "Do you really want to delete this prompt?" }, class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_artist == @prompt.prompter %>
+          <%= link_to prompt, method: :delete, data: { confirm: "Do you really want to delete this prompt?" }, class: "btn btn-block btn-outline-secondary" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Delete link prompt end -->
