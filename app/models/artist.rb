@@ -1,6 +1,10 @@
 class Artist < ApplicationRecord
   # Direct associations
 
+  has_many   :favorited_works,
+             :foreign_key => "favoriter_id",
+             :dependent => :destroy
+
   has_many   :created_works,
              :class_name => "FavoritedWork",
              :foreign_key => "creator_id",

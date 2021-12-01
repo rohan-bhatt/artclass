@@ -1,6 +1,9 @@
 class FavoritedWork < ApplicationRecord
   # Direct associations
 
+  belongs_to :favoriter,
+             :class_name => "Artist"
+
   belongs_to :creator,
              :class_name => "Artist"
 
