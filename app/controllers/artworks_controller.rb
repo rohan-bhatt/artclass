@@ -42,8 +42,14 @@ class ArtworksController < ApplicationController
   # DELETE /artworks/1
   def destroy
     @artwork.destroy
-    redirect_to artworks_url, notice: 'Artwork was successfully destroyed.'
+    message = "Artwork was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to artworks_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

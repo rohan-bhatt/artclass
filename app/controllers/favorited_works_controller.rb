@@ -42,8 +42,14 @@ class FavoritedWorksController < ApplicationController
   # DELETE /favorited_works/1
   def destroy
     @favorited_work.destroy
-    redirect_to favorited_works_url, notice: 'Favorited work was successfully destroyed.'
+    message = "FavoritedWork was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to favorited_works_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
