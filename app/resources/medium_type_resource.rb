@@ -10,5 +10,4 @@ class MediumTypeResource < ApplicationResource
              foreign_key: :medium_id
 
   # Indirect associations
-
 end

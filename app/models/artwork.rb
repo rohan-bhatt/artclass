@@ -4,37 +4,36 @@ class Artwork < ApplicationRecord
   # Direct associations
 
   belongs_to :medium,
-             :required => false,
-             :class_name => "MediumType"
+             optional: true,
+             class_name: "MediumType"
 
   has_many   :favorites,
-             :class_name => "FavoritedWork",
-             :dependent => :destroy
+             class_name: "FavoritedWork",
+             dependent: :destroy
 
   belongs_to :mood,
-             :required => false
+             optional: true
 
   belongs_to :prompt,
-             :required => false,
-             :counter_cache => true
+             optional: true,
+             counter_cache: true
 
   belongs_to :artist,
-             :counter_cache => true
+             counter_cache: true
 
   # Indirect associations
 
   has_many   :fans,
-             :through => :favorites,
-             :source => :favoriter
+             through: :favorites,
+             source: :favoriter
 
   # Validations
 
-  validates :image, :presence => true
+  validates :image, presence: true
 
   # Scopes
 
   def to_s
     created_at
   end
-
 end

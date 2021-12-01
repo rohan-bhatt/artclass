@@ -1,13 +1,13 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe PromptResource, type: :resource do
-  describe 'creating' do
+  describe "creating" do
     let(:payload) do
       {
         data: {
-          type: 'prompts',
-          attributes: { }
-        }
+          type: "prompts",
+          attributes: {},
+        },
       }
     end
 
@@ -15,23 +15,24 @@ RSpec.describe PromptResource, type: :resource do
       PromptResource.build(payload)
     end
 
-    it 'works' do
-      expect {
-        expect(instance.save).to eq(true), instance.errors.full_messages.to_sentence
-      }.to change { Prompt.count }.by(1)
+    it "works" do
+      expect do
+        expect(instance.save).to eq(true),
+                                 instance.errors.full_messages.to_sentence
+      end.to change { Prompt.count }.by(1)
     end
   end
 
-  describe 'updating' do
+  describe "updating" do
     let!(:prompt) { create(:prompt) }
 
     let(:payload) do
       {
         data: {
           id: prompt.id.to_s,
-          type: 'prompts',
-          attributes: { } # Todo!
-        }
+          type: "prompts",
+          attributes: {}, # Todo!
+        },
       }
     end
 
@@ -39,25 +40,25 @@ RSpec.describe PromptResource, type: :resource do
       PromptResource.find(payload)
     end
 
-    xit 'works (add some attributes and enable this spec)' do
-      expect {
+    xit "works (add some attributes and enable this spec)" do
+      expect do
         expect(instance.update_attributes).to eq(true)
-      }.to change { prompt.reload.updated_at }
+      end.to change { prompt.reload.updated_at }
       # .and change { prompt.foo }.to('bar') <- example
     end
   end
 
-  describe 'destroying' do
+  describe "destroying" do
     let!(:prompt) { create(:prompt) }
 
     let(:instance) do
       PromptResource.find(id: prompt.id)
     end
 
-    it 'works' do
-      expect {
+    it "works" do
+      expect do
         expect(instance.destroy).to eq(true)
-      }.to change { Prompt.count }.by(-1)
+      end.to change { Prompt.count }.by(-1)
     end
   end
 end

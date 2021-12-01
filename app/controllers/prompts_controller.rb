@@ -1,12 +1,14 @@
 class PromptsController < ApplicationController
-  before_action :current_artist_must_be_prompt_prompter, only: [:edit, :update, :destroy] 
+  before_action :current_artist_must_be_prompt_prompter,
+                only: %i[edit update destroy]
 
-  before_action :set_prompt, only: [:show, :edit, :update, :destroy]
+  before_action :set_prompt, only: %i[show edit update destroy]
 
   # GET /prompts
   def index
     @q = Prompt.ransack(params[:q])
-    @prompts = @q.result(:distinct => true).includes(:prompter, :artworks).page(params[:page]).per(10)
+    @prompts = @q.result(distinct: true).includes(:prompter,
+                                                  :artworks).page(params[:page]).per(10)
   end
 
   # GET /prompts/1
@@ -20,17 +22,16 @@ class PromptsController < ApplicationController
   end
 
   # GET /prompts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /prompts
   def create
     @prompt = Prompt.new(prompt_params)
 
     if @prompt.save
-      message = 'Prompt was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "Prompt was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @prompt, notice: message
       end
@@ -42,7 +43,7 @@ class PromptsController < ApplicationController
   # PATCH/PUT /prompts/1
   def update
     if @prompt.update(prompt_params)
-      redirect_to @prompt, notice: 'Prompt was successfully updated.'
+      redirect_to @prompt, notice: "Prompt was successfully updated."
     else
       render :edit
     end
@@ -52,30 +53,30 @@ class PromptsController < ApplicationController
   def destroy
     @prompt.destroy
     message = "Prompt was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to prompts_url, notice: message
     end
   end
-
 
   private
 
   def current_artist_must_be_prompt_prompter
     set_prompt
     unless current_artist == @prompt.prompter
-      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+      redirect_back fallback_location: root_path,
+                    alert: "You are not authorized for that."
     end
   end
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_prompt
-      @prompt = Prompt.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_prompt
+    @prompt = Prompt.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def prompt_params
-      params.require(:prompt).permit(:title, :body, :artist_id)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def prompt_params
+    params.require(:prompt).permit(:title, :body, :artist_id)
+  end
 end

@@ -25,5 +25,4 @@ class ArtistResource < ApplicationResource
 
   many_to_many :favorites,
                resource: ArtworkResource
-
 end

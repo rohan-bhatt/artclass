@@ -13,7 +13,7 @@ class Api::V1::MoodsController < Api::V1::GraphitiController
     mood = MoodResource.build(params)
 
     if mood.save
-      render jsonapi: mood, status: 201
+      render jsonapi: mood, status: :created
     else
       render jsonapi_errors: mood
     end
@@ -33,7 +33,7 @@ class Api::V1::MoodsController < Api::V1::GraphitiController
     mood = MoodResource.find(params)
 
     if mood.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: mood
     end

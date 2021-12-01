@@ -2,7 +2,7 @@ class Mood < ApplicationRecord
   # Direct associations
 
   has_many   :artworks,
-             :dependent => :nullify
+             dependent: :nullify
 
   # Indirect associations
 
@@ -13,5 +13,4 @@ class Mood < ApplicationRecord
   def to_s
     mood
   end
-
 end

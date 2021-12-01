@@ -13,7 +13,7 @@ class Api::V1::FavoritedWorksController < Api::V1::GraphitiController
     favorited_work = FavoritedWorkResource.build(params)
 
     if favorited_work.save
-      render jsonapi: favorited_work, status: 201
+      render jsonapi: favorited_work, status: :created
     else
       render jsonapi_errors: favorited_work
     end
@@ -33,7 +33,7 @@ class Api::V1::FavoritedWorksController < Api::V1::GraphitiController
     favorited_work = FavoritedWorkResource.find(params)
 
     if favorited_work.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: favorited_work
     end

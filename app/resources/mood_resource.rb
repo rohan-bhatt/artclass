@@ -6,8 +6,7 @@ class MoodResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :artworks
+  has_many :artworks
 
   # Indirect associations
-
 end

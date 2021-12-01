@@ -1,32 +1,31 @@
 class Artist < ApplicationRecord
-  
   include JwtToken
-# Direct associations
+  # Direct associations
 
   has_many   :favorited_works,
-             :foreign_key => "favoriter_id",
-             :dependent => :destroy
+             foreign_key: "favoriter_id",
+             dependent: :destroy
 
   has_many   :created_works,
-             :class_name => "FavoritedWork",
-             :foreign_key => "creator_id",
-             :dependent => :destroy
+             class_name: "FavoritedWork",
+             foreign_key: "creator_id",
+             dependent: :destroy
 
   has_many   :prompts,
-             :dependent => :nullify
+             dependent: :nullify
 
   has_many   :artworks,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :favorites,
-             :through => :favorited_works,
-             :source => :artwork
+             through: :favorited_works,
+             source: :artwork
 
   # Validations
 
-  validates :username, :presence => true
+  validates :username, presence: true
 
   # Scopes
 

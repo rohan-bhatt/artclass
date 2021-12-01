@@ -1,6 +1,5 @@
 ActiveAdmin.register FavoritedWork do
-
- permit_params :artwork_id, :creator_id, :favoriter_id
+  permit_params :artwork_id, :creator_id, :favoriter_id
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +13,4 @@ ActiveAdmin.register FavoritedWork do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

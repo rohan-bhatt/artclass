@@ -13,7 +13,7 @@ class Api::V1::PromptsController < Api::V1::GraphitiController
     prompt = PromptResource.build(params)
 
     if prompt.save
-      render jsonapi: prompt, status: 201
+      render jsonapi: prompt, status: :created
     else
       render jsonapi_errors: prompt
     end
@@ -33,7 +33,7 @@ class Api::V1::PromptsController < Api::V1::GraphitiController
     prompt = PromptResource.find(params)
 
     if prompt.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: prompt
     end

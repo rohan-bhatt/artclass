@@ -30,5 +30,4 @@ class ArtworkResource < ApplicationResource
 
   many_to_many :fans,
                resource: ArtistResource
-
 end

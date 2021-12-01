@@ -2,8 +2,8 @@ class MediumType < ApplicationRecord
   # Direct associations
 
   has_many   :artworks,
-             :foreign_key => "medium_id",
-             :dependent => :nullify
+             foreign_key: "medium_id",
+             dependent: :nullify
 
   # Indirect associations
 
@@ -14,5 +14,4 @@ class MediumType < ApplicationRecord
   def to_s
     medium
   end
-
 end

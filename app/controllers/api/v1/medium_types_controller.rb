@@ -13,7 +13,7 @@ class Api::V1::MediumTypesController < Api::V1::GraphitiController
     medium_type = MediumTypeResource.build(params)
 
     if medium_type.save
-      render jsonapi: medium_type, status: 201
+      render jsonapi: medium_type, status: :created
     else
       render jsonapi_errors: medium_type
     end
@@ -33,7 +33,7 @@ class Api::V1::MediumTypesController < Api::V1::GraphitiController
     medium_type = MediumTypeResource.find(params)
 
     if medium_type.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: medium_type
     end

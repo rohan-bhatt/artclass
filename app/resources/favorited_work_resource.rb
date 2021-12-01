@@ -17,5 +17,4 @@ class FavoritedWorkResource < ApplicationResource
              resource: ArtistResource
 
   # Indirect associations
-
 end

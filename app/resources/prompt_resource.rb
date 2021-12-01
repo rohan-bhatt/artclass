@@ -15,5 +15,4 @@ class PromptResource < ApplicationResource
              foreign_key: :artist_id
 
   # Indirect associations
-
 end
