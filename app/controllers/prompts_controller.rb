@@ -4,27 +4,22 @@ class PromptsController < ApplicationController
 
   before_action :set_prompt, only: %i[show edit update destroy]
 
-  # GET /prompts
   def index
     @q = Prompt.ransack(params[:q])
     @prompts = @q.result(distinct: true).includes(:prompter,
                                                   :artworks).page(params[:page]).per(10)
   end
 
-  # GET /prompts/1
   def show
     @artwork = Artwork.new
   end
 
-  # GET /prompts/new
   def new
     @prompt = Prompt.new
   end
 
-  # GET /prompts/1/edit
   def edit; end
 
-  # POST /prompts
   def create
     @prompt = Prompt.new(prompt_params)
 
@@ -40,7 +35,6 @@ class PromptsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /prompts/1
   def update
     if @prompt.update(prompt_params)
       redirect_to @prompt, notice: "Prompt was successfully updated."
@@ -49,7 +43,6 @@ class PromptsController < ApplicationController
     end
   end
 
-  # DELETE /prompts/1
   def destroy
     @prompt.destroy
     message = "Prompt was successfully deleted."
@@ -70,12 +63,10 @@ class PromptsController < ApplicationController
     end
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_prompt
     @prompt = Prompt.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def prompt_params
     params.require(:prompt).permit(:title, :body, :artist_id)
   end
