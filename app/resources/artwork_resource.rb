@@ -14,6 +14,8 @@ class ArtworkResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :mood
+
   belongs_to :prompt
 
   belongs_to :artist
