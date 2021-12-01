@@ -28,4 +28,7 @@ class ArtworkResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :fans,
+               resource: ArtistResource
+
 end

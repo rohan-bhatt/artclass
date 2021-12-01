@@ -23,4 +23,7 @@ class ArtistResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :favorites,
+               resource: ArtworkResource
+
 end
