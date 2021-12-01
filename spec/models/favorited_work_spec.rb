@@ -4,6 +4,8 @@ RSpec.describe FavoritedWork, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:artwork) }
+
     it { should belong_to(:favoriter) }
 
     it { should belong_to(:creator) }

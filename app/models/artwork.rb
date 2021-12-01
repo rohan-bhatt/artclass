@@ -1,6 +1,10 @@
 class Artwork < ApplicationRecord
   # Direct associations
 
+  has_many   :favorites,
+             :class_name => "FavoritedWork",
+             :dependent => :destroy
+
   belongs_to :mood,
              :required => false
 
