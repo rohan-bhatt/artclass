@@ -18,6 +18,10 @@ class Artist < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :favorites,
+             :through => :favorited_works,
+             :source => :artwork
+
   # Validations
 
   validates :username, :presence => true

@@ -21,6 +21,10 @@ class Artwork < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :fans,
+             :through => :favorites,
+             :source => :favoriter
+
   # Validations
 
   validates :image, :presence => true
