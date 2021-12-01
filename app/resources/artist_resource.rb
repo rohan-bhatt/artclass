@@ -10,6 +10,10 @@ class ArtistResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :created_works,
+             resource: FavoritedWorkResource,
+             foreign_key: :creator_id
+
   has_many   :prompts
 
   has_many   :artworks

@@ -8,6 +8,9 @@ class FavoritedWorkResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :creator,
+             resource: ArtistResource
+
   # Indirect associations
 
 end
