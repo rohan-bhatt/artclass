@@ -1,5 +1,7 @@
 class Artist < ApplicationRecord
-  # Direct associations
+  
+  include JwtToken
+# Direct associations
 
   has_many   :favorited_works,
              :foreign_key => "favoriter_id",
