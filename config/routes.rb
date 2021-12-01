@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "prompts#index"
   resources :favorited_works
   resources :medium_types
   resources :artworks
