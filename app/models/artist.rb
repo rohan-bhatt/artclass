@@ -1,6 +1,9 @@
 class Artist < ApplicationRecord
   # Direct associations
 
+  has_many   :prompts,
+             :dependent => :nullify
+
   has_many   :artworks,
              :dependent => :destroy
 

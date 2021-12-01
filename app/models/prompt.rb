@@ -1,6 +1,10 @@
 class Prompt < ApplicationRecord
   # Direct associations
 
+  belongs_to :prompter,
+             :class_name => "Artist",
+             :foreign_key => "artist_id"
+
   # Indirect associations
 
   # Validations
