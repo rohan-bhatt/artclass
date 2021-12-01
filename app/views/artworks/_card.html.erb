@@ -14,7 +14,11 @@
 
       <dt>Artist</dt>
       <!-- Display artist_id start -->
-      <dd><%= artwork.artist_id %></dd>
+      <dd>
+        <% if @artwork.artist.present? %>
+          <%= link_to artwork.artist, artwork.artist %>
+        <% end %>
+      </dd>
       <!-- Display artist_id end -->
 
       <dt>Title</dt>
@@ -39,17 +43,29 @@
 
       <dt>Medium</dt>
       <!-- Display medium_id start -->
-      <dd><%= artwork.medium_id %></dd>
+      <dd>
+        <% if @artwork.medium.present? %>
+          <%= link_to artwork.medium, artwork.medium %>
+        <% end %>
+      </dd>
       <!-- Display medium_id end -->
 
       <dt>Mood</dt>
       <!-- Display mood_id start -->
-      <dd><%= artwork.mood_id %></dd>
+      <dd>
+        <% if @artwork.mood.present? %>
+          <%= link_to artwork.mood, artwork.mood %>
+        <% end %>
+      </dd>
       <!-- Display mood_id end -->
 
       <dt>Prompt</dt>
       <!-- Display prompt_id start -->
-      <dd><%= artwork.prompt_id %></dd>
+      <dd>
+        <% if @artwork.prompt.present? %>
+          <%= link_to artwork.prompt, artwork.prompt %>
+        <% end %>
+      </dd>
       <!-- Display prompt_id end -->
 
     </dl>

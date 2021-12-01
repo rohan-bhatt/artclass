@@ -17,7 +17,11 @@
 
       <dt>Artist</dt>
       <!-- Display artist_id start -->
-      <dd><%= prompt.artist_id %></dd>
+      <dd>
+        <% if @prompt.prompter.present? %>
+          <%= link_to prompt.prompter, prompt.prompter %>
+        <% end %>
+      </dd>
       <!-- Display artist_id end -->
 
     </dl>

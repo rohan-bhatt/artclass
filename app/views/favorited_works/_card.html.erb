@@ -7,17 +7,29 @@
     <dl class="mb-1">
       <dt>Artwork</dt>
       <!-- Display artwork_id start -->
-      <dd><%= favorited_work.artwork_id %></dd>
+      <dd>
+        <% if @favorited_work.artwork.present? %>
+          <%= link_to favorited_work.artwork, favorited_work.artwork %>
+        <% end %>
+      </dd>
       <!-- Display artwork_id end -->
 
       <dt>Creator</dt>
       <!-- Display creator_id start -->
-      <dd><%= favorited_work.creator_id %></dd>
+      <dd>
+        <% if @favorited_work.creator.present? %>
+          <%= link_to favorited_work.creator, favorited_work.creator %>
+        <% end %>
+      </dd>
       <!-- Display creator_id end -->
 
       <dt>Favoriter</dt>
       <!-- Display favoriter_id start -->
-      <dd><%= favorited_work.favoriter_id %></dd>
+      <dd>
+        <% if @favorited_work.favoriter.present? %>
+          <%= link_to favorited_work.favoriter, favorited_work.favoriter %>
+        <% end %>
+      </dd>
       <!-- Display favoriter_id end -->
 
     </dl>
