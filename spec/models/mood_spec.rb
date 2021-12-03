@@ -6,6 +6,7 @@ RSpec.describe Mood, type: :model do
   end
 
   describe "InDirect Associations" do
+    it { should have_many(:artists) }
   end
 
   describe "Validations" do

@@ -10,4 +10,6 @@ class MediumTypeResource < ApplicationResource
              foreign_key: :medium_id
 
   # Indirect associations
+
+  many_to_many :artists
 end

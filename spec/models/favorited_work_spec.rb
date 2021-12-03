@@ -5,8 +5,6 @@ RSpec.describe FavoritedWork, type: :model do
     it { should belong_to(:artwork) }
 
     it { should belong_to(:favoriter) }
-
-    it { should belong_to(:creator) }
   end
 
   describe "InDirect Associations" do

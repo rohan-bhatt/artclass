@@ -9,4 +9,6 @@ class MoodResource < ApplicationResource
   has_many :artworks
 
   # Indirect associations
+
+  many_to_many :artists
 end

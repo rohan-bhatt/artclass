@@ -24,28 +24,6 @@
     <% end %>
   </div>
   <div class="form-group">
-    <% creator_class = "form-control" %>
-    <% creator_was_invalid = favorited_work.errors.include?(:creator) %>
-
-    <% if was_validated %>
-      <% if creator_was_invalid %>
-        <% creator_class << " is-invalid" %>
-      <% else %>
-        <% creator_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :creator_id %>
-    <%= f.collection_select :creator_id, Artist.all, :id, :to_s, {}, class: "form-control" %>
-    <% if creator_was_invalid %>
-      <% favorited_work.errors.full_messages_for(:creator).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="form-group">
     <% favoriter_class = "form-control" %>
     <% favoriter_was_invalid = favorited_work.errors.include?(:favoriter) %>
 
