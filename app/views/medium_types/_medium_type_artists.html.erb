@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Artists
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @medium_type.artists.each do |artist| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <a href="/artists/<%= artist.id %>">
+          <%= artist %>
+        </a>
+
+      </li>
+    <% end %>
+
+  </ul>
+</div>

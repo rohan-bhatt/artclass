@@ -4,12 +4,7 @@ class Artist < ApplicationRecord
 
   has_many   :favorited_works,
              foreign_key: "favoriter_id",
-             dependent: :destroy
-
-  has_many   :created_works,
-             class_name: "FavoritedWork",
-             foreign_key: "creator_id",
-             dependent: :destroy
+             dependent: :nullify
 
   has_many   :prompts,
              dependent: :nullify
@@ -19,9 +14,17 @@ class Artist < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :moods,
+             through: :artworks,
+             source: :mood
+
   has_many   :favorites,
              through: :favorited_works,
              source: :artwork
+
+  has_many   :media,
+             through: :artworks,
+             source: :medium
 
   # Validations
 

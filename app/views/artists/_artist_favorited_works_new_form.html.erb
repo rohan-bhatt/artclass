@@ -6,12 +6,6 @@
     <%= f.collection_select :artwork_id, Artwork.all, :id, :to_s, {}, class: "form-control" %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :creator_id %>
-
-    <%= f.text_field :creator_id, class: "form-control" %>
-  </div>
-
   <%= f.hidden_field :favoriter_id, value: @artist.id %>
 
   <%= f.submit "Create favorited work", class: "btn btn-block btn-outline-secondary" %>

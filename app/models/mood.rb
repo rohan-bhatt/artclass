@@ -6,6 +6,10 @@ class Mood < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :artists,
+             through: :artworks,
+             source: :artist
+
   # Validations
 
   # Scopes

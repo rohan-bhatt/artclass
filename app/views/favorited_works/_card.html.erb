@@ -12,13 +12,6 @@
         <% end %>
       </dd>
 
-      <dt>Creator</dt>
-      <dd>
-        <% if @favorited_work.creator.present? %>
-          <%= link_to favorited_work.creator, favorited_work.creator %>
-        <% end %>
-      </dd>
-
       <dt>Favoriter</dt>
       <dd>
         <% if @favorited_work.favoriter.present? %>

@@ -13,16 +13,17 @@ class ArtistResource < ApplicationResource
   has_many   :favorited_works,
              foreign_key: :favoriter_id
 
-  has_many   :created_works,
-             resource: FavoritedWorkResource,
-             foreign_key: :creator_id
-
   has_many   :prompts
 
   has_many   :artworks
 
   # Indirect associations
 
+  many_to_many :moods
+
   many_to_many :favorites,
                resource: ArtworkResource
+
+  many_to_many :media,
+               resource: MediumTypeResource
 end

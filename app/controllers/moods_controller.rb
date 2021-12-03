@@ -3,7 +3,8 @@ class MoodsController < ApplicationController
 
   def index
     @q = Mood.ransack(params[:q])
-    @moods = @q.result(distinct: true).includes(:artworks).page(params[:page]).per(10)
+    @moods = @q.result(distinct: true).includes(:artworks,
+                                                :artists).page(params[:page]).per(10)
   end
 
   def show

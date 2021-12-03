@@ -3,7 +3,8 @@ class MediumTypesController < ApplicationController
 
   def index
     @q = MediumType.ransack(params[:q])
-    @medium_types = @q.result(distinct: true).includes(:artworks).page(params[:page]).per(10)
+    @medium_types = @q.result(distinct: true).includes(:artworks,
+                                                       :artists).page(params[:page]).per(10)
   end
 
   def show

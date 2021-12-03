@@ -3,12 +3,6 @@
   <%= f.hidden_field :artwork_id, value: @artwork.id %>
 
   <div class="form-group">
-    <%= f.label :creator_id %>
-
-    <%= f.collection_select :creator_id, Artist.all, :id, :to_s, {}, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
     <%= f.label :favoriter_id %>
 
     <%= f.collection_select :favoriter_id, Artist.all, :id, :to_s, {}, class: "form-control" %>

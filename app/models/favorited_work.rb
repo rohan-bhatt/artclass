@@ -7,9 +7,6 @@ class FavoritedWork < ApplicationRecord
   belongs_to :favoriter,
              class_name: "Artist"
 
-  belongs_to :creator,
-             class_name: "Artist"
-
   # Indirect associations
 
   # Validations

@@ -3,8 +3,8 @@ class FavoritedWorksController < ApplicationController
 
   def index
     @q = FavoritedWork.ransack(params[:q])
-    @favorited_works = @q.result(distinct: true).includes(:creator,
-                                                          :favoriter, :artwork).page(params[:page]).per(10)
+    @favorited_works = @q.result(distinct: true).includes(:favoriter,
+                                                          :artwork).page(params[:page]).per(10)
   end
 
   def show; end
@@ -56,7 +56,6 @@ class FavoritedWorksController < ApplicationController
   end
 
   def favorited_work_params
-    params.require(:favorited_work).permit(:artwork_id, :creator_id,
-                                           :favoriter_id)
+    params.require(:favorited_work).permit(:artwork_id, :favoriter_id)
   end
 end

@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Moods
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @artist.moods.each do |mood| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <a href="/moods/<%= mood.id %>">
+          <%= mood %>
+        </a>
+
+      </li>
+    <% end %>
+
+  </ul>
+</div>
